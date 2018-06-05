@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="rvir.mycloset">
+
     <uses-permission-sdk-23 android:name="android.permission.CAMERA" />
     <uses-permission-sdk-23 android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -20,7 +22,12 @@
         <activity
             android:name=".DodajOblekoActivity"
             android:parentActivityName=".MainActivity" />
-        <activity android:name=".SeznamOblekActivity"></activity>
+        <activity android:name=".SeznamOblekActivity" />
+        <activity android:name=".SeznamOmarActivity" />
+        <activity android:name=".DodajKombinacijoActivity" />
+        <activity android:name=".KajNajOblecemActivity" />
+        <activity android:name=".DodajOmaroActivity" />
+        <activity android:name=".SeznamPolicActivity"></activity>
     </application>
 
 </manifest>

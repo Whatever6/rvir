@@ -2,6 +2,7 @@ package rvir.mycloset;
 
 import android.arch.persistence.room.ColumnInfo;
 import android.arch.persistence.room.Entity;
+import android.arch.persistence.room.ForeignKey;
 import android.arch.persistence.room.PrimaryKey;
 
 /**
@@ -14,10 +15,12 @@ import android.arch.persistence.room.PrimaryKey;
     z drugim oblačilom
  */
 
-@Entity(tableName = "oblacilo")
+@Entity(tableName = "oblacilo", foreignKeys = @ForeignKey(entity = Polica.class, parentColumns = "id_polica", childColumns = "tk_id_polica"))
 public class Oblacilo {
     @PrimaryKey
+    @ColumnInfo(name = "id_oblacilo")
     private int id;
+
     private String slika;
     private String naziv;
     private int vrsta;
@@ -26,10 +29,11 @@ public class Oblacilo {
     private int pomlad;
     private int zima;
     private int jesen;
-    private Polica polica;
 
-    public Oblacilo(int id, String slika, String naziv, int vrsta, int priloznost, int poletje, int pomlad, int zima, int jesen, Polica polica) {
-        this.id = id;
+    @ColumnInfo(name = "tk_id_polica")
+    private int tk_polica;
+
+    public Oblacilo(String slika, String naziv, int vrsta, int priloznost, int poletje, int pomlad, int zima, int jesen, int tk_polica) {
         this.slika = slika;
         this.naziv = naziv;
         this.vrsta = vrsta;
@@ -38,10 +42,8 @@ public class Oblacilo {
         this.pomlad = pomlad;
         this.zima = zima;
         this.jesen = jesen;
-        this.polica = polica;
+        this.tk_polica = tk_polica;
     }
-
-
 
     public int getId() {
         return id;
@@ -83,12 +85,12 @@ public class Oblacilo {
         this.priloznost = priloznost;
     }
 
-    public Polica getPolica() {
-        return polica;
+    public int getTk_polica() {
+        return tk_polica;
     }
 
-    public void setPolica(Polica polica) {
-        this.polica = polica;
+    public void setTk_polica(int tk_polica) {
+        this.tk_polica = tk_polica;
     }
 
     public int getPoletje() {

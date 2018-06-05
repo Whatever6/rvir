@@ -42,6 +42,8 @@ public class DodajOblekoActivity extends AppCompatActivity {
         startActivity(intent);
 
     }
+
+    /*  DODAJ SLIKO - nedelujoče
     public void dodajSliko(View view) {
         Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         file = Uri.fromFile(getOutputMediaFile());
@@ -49,6 +51,9 @@ public class DodajOblekoActivity extends AppCompatActivity {
 
         startActivityForResult(intent, 100);
     }
+
+    */
+
     @Override
     public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
         if (requestCode == 0) {
@@ -81,6 +86,5 @@ public class DodajOblekoActivity extends AppCompatActivity {
         return new File(mediaStorageDir.getPath() + File.separator +
                 "IMG_"+ timeStamp + ".jpg");
     }
-
 
 }
